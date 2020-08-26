@@ -1,0 +1,15 @@
+apiVersion: kafka.strimzi.io/v1beta1
+kind: KafkaConnectS2I
+metadata:
+  name: morgan4-connect-cluster
+  annotations:
+    strimzi.io/use-connector-resources: "true"
+spec:
+  version: 2.5.0
+  replicas: 1
+  bootstrapServers: morgan4-cluster-kafka-bootstrap:9092
+  config:
+    group.id: connect4-cluster
+    offset.storage.topic: connect4-cluster-offsets
+    config.storage.topic: connect4-cluster-configs
+    status.storage.topic: connect4-cluster-status
