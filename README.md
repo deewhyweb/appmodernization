@@ -25,7 +25,7 @@ oc set env dc/mysql MYSQL_ROOT_PASSWORD=debezium  MYSQL_USER=mysqluser MYSQL_PAS
 # s2i build with mysql drivers
   oc start-build morgan4-connect-cluster-connect --from-dir ./kafka-connect-s2i -n daytrader
   # you might run into imagestream /unauthorized issues ..the following addresses that
-  #Note: create your secret from access.redhat.com and save file
+  # Note: create your secret from access.redhat.com and save file
 oc create -f <your secret file>.yaml -n daytrader
 oc get secrets
 # find the secret just created for the command below
