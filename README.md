@@ -5,6 +5,7 @@
 # login to oc
 oc login  
 #new project
+oc new project daytrader
 
 oc create project daytrader
 #create kafka cluster with persistence
