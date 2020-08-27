@@ -1,6 +1,6 @@
 # appmodernization
 
-#Steps to deploy kafka cluster, kakfa connect cluster, mysql , mysql debezium cdc connector
+#Steps to deploy kafka cluster, kakfa connect cluster, mysql , mysql debezium cdc connector, kafdrop
 # Note: the amq streams operator should have been installed as a prereq 
 # login to oc
 oc login  
