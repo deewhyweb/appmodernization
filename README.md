@@ -26,7 +26,11 @@ Test the kafka topics
 
 `oc  -n daytrader exec daytrader-cluster-kafka-0 -c kafka -i -t -- bin/kafka-topics.sh --bootstrap-server localhost:9092 --list`
 
-# Deploy the daytrader app
+## Deploy the daytrader app
+
+Postgres:
+
+`oc new-app -p POSTGRESQL_USER=tradedb -p POSTGRESQL_PASSWORD=tradedb -p POSTGRESQL_DATABASE=tradedb postgresql-persistent`
 
 `oc delete limits daytrader-core-resource-limits`
 
