@@ -39,3 +39,7 @@ Postgres:
 `oc apply -f bc-quarkus-trade-orders.yml`
 
 `oc apply -f dc-quarkus-trade-orders.yml`
+
+## Day trader app
+
+`oc new-app openliberty/open-liberty-s2i:latest~https://github.com/murphye/sample.daytrader8.git\#openshift`

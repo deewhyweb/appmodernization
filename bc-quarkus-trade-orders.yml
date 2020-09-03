@@ -1,9 +1,6 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  annotations:
-    openshift.io/generated-by: OpenShiftNewApp
-  creationTimestamp: null
   labels:
     app: quarkus-trade-orders
   name: quarkus-trade-orders
@@ -27,8 +24,8 @@ spec:
   strategy:
     sourceStrategy:
       from:
-        kind: ImageStreamTag
-        name: ubi-quarkus-native-s2i:20.1.0-java11
+        kind: "DockerImage"
+        name: quay.io/quarkus/ubi-quarkus-native-s2i:20.1.0-java11
     type: Source
   successfulBuildsHistoryLimit: 5
   triggers:
