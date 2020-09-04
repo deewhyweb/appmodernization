@@ -1,5 +1,11 @@
 # appmodernization
 
+Install the amq streams operator
+
+`oc apply -f operators.yaml`
+
+`oc apply -f operator-subscriptions.yaml`
+
 `oc new-project daytrader`
 
 ## create kafka cluster with persistence
@@ -43,3 +49,5 @@ Postgres:
 ## Day trader app
 
 `oc new-app openliberty/open-liberty-s2i:latest~https://github.com/murphye/sample.daytrader8.git\#openshift`
+
+
