@@ -2,8 +2,6 @@
 
 Install the amq streams operator
 
-`oc apply -f operators.yaml`
-
 `oc apply -f operator-subscriptions.yaml`
 
 `oc new-project daytrader`
