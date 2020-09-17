@@ -2,6 +2,7 @@ apiVersion: kafka.strimzi.io/v1alpha1
 kind: KafkaConnector
 metadata:
   name: sqlserver-debezium-connector4
+  namespace: kafka
   labels:
     strimzi.io/cluster: my-connect-cluster
 spec:
@@ -16,7 +17,7 @@ spec:
     database.server.name: "daytrader"
     database.whitelist: "inventory"
     table.whitelist: "inventory.outboxevent"
-    database.history.kafka.bootstrap.servers: "daytrader-cluster-kafka-bootstrap:9092"
+    database.history.kafka.bootstrap.servers: "demo-cluster-kafka-bootstrap:9092"
     database.history.kafka.topic: "schema-changes.daytrader"
     #transforms: "outbox"
     transforms.outbox.type : "io.debezium.transforms.outbox.EventRouter"

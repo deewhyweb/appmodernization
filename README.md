@@ -4,7 +4,7 @@ Install the amq streams operator
 
 `oc apply -f operator-subscriptions.yaml`
 
-`oc new-project daytrader`
+`oc new-project kafka`
 
 ## create kafka cluster with persistence
 
@@ -31,6 +31,8 @@ Test the kafka topics
 `oc  -n daytrader exec daytrader-cluster-kafka-0 -c kafka -i -t -- bin/kafka-topics.sh --bootstrap-server localhost:9092 --list`
 
 ## Deploy the daytrader app
+
+`oc new-project daytrader`
 
 Postgres:
 
