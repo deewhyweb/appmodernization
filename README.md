@@ -4,11 +4,11 @@ Install the amq streams operator
 
 `oc apply -f operator-subscriptions.yaml`
 
-`oc new-project kafka`
-
 ## create kafka cluster with persistence
 
-`oc create -f kafka.yml  -n daytrader`
+`oc new-project kafka`
+
+`oc create -f kafka.yml  -n kafka`
 
 ## deploy kafdrop an opensource tool to view messages
 
@@ -16,19 +16,19 @@ Install the amq streams operator
 
 ## deploy mysql abd debezium kafka connector
 
-`oc new-app --name=mysql debezium/example-mysql:1.2 -n daytrader`
+`oc new-app --name=mysql debezium/example-mysql:1.2 -n kafka`
 
 `oc set env dc/mysql MYSQL_ROOT_PASSWORD=debezium  MYSQL_USER=mysqluser MYSQL_PASSWORD=mysqlpw`
 
-`oc  create secret generic my-sql-credentials --from-file=debezium-mysql-credentials.properties -n daytrader`
+`oc  create secret generic my-sql-credentials --from-file=debezium-mysql-credentials.properties -n kafka`
 
-`oc apply -f kafka-connect.yml -n daytrader`
+`oc apply -f kafka-connect.yml -n kafka`
 
-`oc apply -f mysqlconnector.yml -n daytrader`
+`oc apply -f mysqlconnector.yml -n kafka`
 
 Test the kafka topics
 
-`oc  -n daytrader exec daytrader-cluster-kafka-0 -c kafka -i -t -- bin/kafka-topics.sh --bootstrap-server localhost:9092 --list`
+`oc  -n kafka exec demo-cluster-kafka-0 -c kafka -i -t -- bin/kafka-topics.sh --bootstrap-server localhost:9092 --list`
 
 ## Deploy the daytrader app
 
@@ -49,7 +49,6 @@ Postgres:
 ## Day trader app
 
 `oc new-app openliberty/open-liberty-s2i:latest~https://github.com/murphye/sample.daytrader8.git\#openshift`
-
 
 ## CRW
 
