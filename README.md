@@ -49,3 +49,20 @@ Postgres:
 `oc new-app openliberty/open-liberty-s2i:latest~https://github.com/murphye/sample.daytrader8.git\#openshift`
 
 
+## CRW
+
+`oc new-project image-puller`
+
+`oc apply -f image-puller-operator-group.yml`
+
+`oc apply -f image-puller-operator.yml`
+
+`oc apply -f image-puller.yml`
+
+`oc new-project code-ready-workspaces`
+
+` oc apply -f crw-operator-group.yml`
+
+`oc apply -f crw-operator.yml`
+
+`oc apply -f crw-cluster.yml`
