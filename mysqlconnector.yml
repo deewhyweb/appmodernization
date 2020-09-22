@@ -9,7 +9,7 @@ spec:
   class: io.debezium.connector.mysql.MySqlConnector
   tasksMax: 1
   config:
-    database.hostname: "mysql"
+    database.hostname: "mysql.daytrader.svc.cluster.local"
     database.port: "3306"
     database.user: "root"
     database.password: "debezium"

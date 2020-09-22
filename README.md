@@ -14,17 +14,6 @@ Install the amq streams operator
 
 `oc create -f kafdrop4.yml`
 
-## deploy mysql abd debezium kafka connector
-
-`oc new-app --name=mysql debezium/example-mysql:1.2 -n kafka`
-
-`oc set env dc/mysql MYSQL_ROOT_PASSWORD=debezium  MYSQL_USER=mysqluser MYSQL_PASSWORD=mysqlpw`
-
-`oc  create secret generic my-sql-credentials --from-file=debezium-mysql-credentials.properties -n kafka`
-
-`oc apply -f kafka-connect.yml -n kafka`
-
-`oc apply -f mysqlconnector.yml -n kafka`
 
 Test the kafka topics
 
@@ -33,6 +22,17 @@ Test the kafka topics
 ## Deploy the daytrader app
 
 `oc new-project daytrader`
+
+`oc new-app --name=mysql debezium/example-mysql:1.2 -n daytrader`
+
+`oc set env dc/mysql MYSQL_ROOT_PASSWORD=debezium  MYSQL_USER=mysqluser MYSQL_PASSWORD=mysqlpw`
+
+`oc  create secret generic my-sql-credentials --from-file=debezium-mysql-credentials.properties -n kafka`
+
+
+`oc apply -f kafka-connect.yml -n kafka`
+
+`oc apply -f mysqlconnector.yml -n kafka`
 
 Postgres:
 
